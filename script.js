@@ -42,7 +42,12 @@ function generatePassword() {
   }
 
   passwordDisplay.value = password;
-  updatePasswordStrength(password.length);
+  if (passwordDisplay.value.length <= 20) {
+    passwordDisplay.style.width = 'auto';
+  } else {
+    passwordDisplay.style.width = ((passwordDisplay.value.length + 1) * 1.1) + 'ch';
+} 
+    updatePasswordStrength(password.length);
 }
 
 function updatePasswordStrength(length) {
